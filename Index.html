@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>u stalkin, anon!?</title>
+    <meta name="description" content="varnoxe's personalShyt">
+    <meta name="author" content="varn0xe">
+
+    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+    <link rel="shortcut icon" href="/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicons/site.webmanifest" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.cdnfonts.com/css/porcelain-2" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/ibm-plex-mono-3" rel="stylesheet">
+
+    <style>
+        * {
+            cursor: none !important;
+        }
+        #cursor-follower {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease;
+        }
+        #cursor-follower.animate-popup {
+            transform: translate(-50%, -50%) scale(1.5);
+            transition: transform 0.2s ease;
+        }
+    </style>
+
+</head>
+
+<body class="bg-black w-full max-w-[90%] md:w-[43%] mx-auto">
+    <nav class="mt-6 ">
+        <div>
+            <h1 class="font-['Porcelain',_sans-serif] text-white text-5xl"> Varn<span class="text-red-600">0</span>xe's
+                here...</h1>
+        </div>
+    </nav>
+    <hr class="mt-3 max-w-prose leading-relaxed ">
+    <section class="wrap mt-4 text-white font-['IBM_Plex_Mono',_monospace] flex items-start gap-6">
+
+        <div class="flex-1">
+            <h1 class="text-2xl">
+                whatsgood,
+                <i class="text-green-600">bitch?</i>
+            </h1>
+            <h1 class="mt-3 text-lg">
+                an <sup>*</sup>Enginear who's into Math, ML, and MVP's, Always learning new shyt.
+            </h1>
+            <h1 class="mt-3 text-lg">
+                when you're pushin' in Bed, i'm pushin' to - <a class="text-green-600" href="https://guthib.com">(Don't Click Here)</a>.
+            </h1>
+            <h1 class="mt-3 text-lg">
+                wanna exchange <s>girlfriend</s> <sup>*</sup>Ideas?
+                <p class="text-yellow-600 mt-2">
+                    <span class="before:content-['•'] before:mr-0.1">
+                        <a target="_blank" class="italic text-red-600" href="http://x.com/@varn0xe">my ex</a>
+                    </span><br>
+                    <span class="before:content-['•'] before:mr-0.1">
+                        <a target="_blank" class="italic text-red-600" href="http://github.com/varn0xe">github</a>
+                    </span><br>
+                    <span class="before:content-['•'] before:mr-0.1">
+                        <a target="_blank" class="italic text-red-600" href="http://instagram.com/varn0xe">instagram</a>
+                    </span><br>
+                    <span class="before:content-['•'] before:mr-0.1">
+                        <a target="_blank" class="italic text-red-600" href="http://linkedin.com/in/varn0xe">linkedIn</a>
+                    </span><br>
+                </p>
+            </h1>
+        </div>
+
+    </section>
+
+    <img id="cursor-follower" src="/assets/cursor-image.png" alt="Profile Pic" width="32" height="32">
+
+    <audio id="meow-sound" src="/assets/cat-meow.mp3"></audio>
+
+    <script>
+        const follower = document.getElementById('cursor-follower');
+        const meowSound = document.getElementById('meow-sound');
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let followerX = 0;
+        let followerY = 0;
+        const speed = 0.1;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animate() {
+            followerX += (mouseX - followerX) * speed;
+            followerY += (mouseY - followerY) * speed;
+
+            follower.style.left = `${followerX}px`;
+            follower.style.top = `${followerY}px`;
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        document.addEventListener('mousedown', () => {
+            follower.classList.add('animate-popup');
+            meowSound.play();
+            setTimeout(() => {
+                follower.classList.remove('animate-popup');
+            }, 200);
+        });
+    </script>
+
+</body>
+
+</html>
